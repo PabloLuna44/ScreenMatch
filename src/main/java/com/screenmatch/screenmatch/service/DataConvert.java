@@ -2,7 +2,7 @@ package com.screenmatch.screenmatch.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.screenmatch.screenmatch.model.DataSerie;
+
 
 public class DataConvert implements IDataConvert {
 
