@@ -13,22 +13,22 @@ public interface SerieRepository extends JpaRepository<Serie,Long> {
 
     Optional<Serie> findByTitleContainsIgnoreCase(String title);
 
-    List<Serie> findTop5ByOrderByRaitingDesc();
+    List<Serie> findTop5ByOrderByRatingDesc();
 
     List<Serie> findByGenre(Category genre);
 
-    List<Serie> findByTotalSeasonsLessThanEqualAndRaitingGreaterThan(Integer season, Double rating);
+    List<Serie> findByTotalSeasonsLessThanEqualAndRatingGreaterThan(Integer season, Double rating);
 
-    @Query(value = "SELECT * FROM SERIES WHERE total_seasons<=3 AND raiting>=7.8",nativeQuery = true)
-    List<Serie> SerieBySeasonAndRaitingNative();
-
-    @Query("SELECT s FROM Serie s WHERE s.totalSeasons<=:totalSeason AND s.raiting>=:raiting")
-    List<Serie> SerieBySeasonAndRaiting(Integer totalSeason, Double raiting);
+    @Query(value = "SELECT * FROM SERIES WHERE total_seasons<=3 AND rating>=7.8",nativeQuery = true)
+    List<Serie> SerieBySeasonAndRatingNative();
+ 
+    @Query("SELECT s FROM Serie s WHERE s.totalSeasons<=:totalSeason AND s.rating>=:rating")
+    List<Serie> SerieBySeasonAndRating(Integer totalSeason, Double rating);
 
     @Query("SELECT e FROM Serie s JOIN s.episodes e WHERE e.title ILIKE %:title")
     List<Episode> EpisodeByTitle(String title);
 
-    @Query("SELECT e FROM Serie s JOIN s.episodes e WHERE s=:serie ORDER BY e.raiting DESC LIMIT 5")
+    @Query("SELECT e FROM Serie s JOIN s.episodes e WHERE s=:serie ORDER BY e.rating DESC LIMIT 5")
     List<Episode> Top5EpisodesBySerie(Serie serie);
 
 

@@ -16,7 +16,7 @@ public class Serie {
     @Column(unique=true) // Indicamos que esa columna va a ser unica que no tenga otras filas con ese mismo valor en esa columna
     private String title;
     private Integer totalSeasons;
-    private Double raiting;
+    private Double rating;
     @Enumerated(EnumType.STRING) // Indicamos que va a ser un ENUM esa columna
     private Category genre;
     private String plot;
@@ -33,7 +33,7 @@ public class Serie {
     public Serie(DataSerie dataSerie) {
         this.title =dataSerie.title();
         this.totalSeasons =dataSerie.totalSeasons();
-        this.raiting = OptionalDouble.of(Double.valueOf(dataSerie.raiting())).orElse(0);
+        this.rating = OptionalDouble.of(Double.valueOf(dataSerie.rating())).orElse(0);
         this.genre = Category.fromString(dataSerie.genre().split(",")[0].trim());
         this.plot=dataSerie.plot();
 //        this.Plot= ChatgptAPI.getTranslate(dataSerie.Plot());
@@ -44,10 +44,10 @@ public class Serie {
 
     @Override
     public String toString() {
-        return "Serie{" +
+        return "Series{" +
                 "Title='" + title + '\'' +
                 ", TotalSeasons=" + totalSeasons +
-                ", Raiting=" + raiting +
+                ", Rating=" + rating +
                 ", Genre=" + genre +
                 ", Plot='" + plot + '\'' +
                 ", Actors='" + actors + '\'' +
@@ -86,12 +86,12 @@ public class Serie {
         totalSeasons = totalSeasons;
     }
 
-    public Double getRaiting() {
-        return raiting;
+    public Double getRating() {
+        return rating;
     }
 
-    public void setRaiting(Double raiting) {
-        raiting = raiting;
+    public void setRating(Double rating) {
+        rating = rating;
     }
 
     public Category getGenre() {
