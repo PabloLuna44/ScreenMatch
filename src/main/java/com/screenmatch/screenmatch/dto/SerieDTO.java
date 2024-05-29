@@ -18,7 +18,7 @@ public record SerieDTO(
                 this(
                         serie.getTitle(),
                         serie.getTotalSeasons(),
-                        serie.getRaiting(),
+                        serie.getRating(),
                         serie.getGenre(),
                         serie.getPlot(),
                         serie.getActors(),
