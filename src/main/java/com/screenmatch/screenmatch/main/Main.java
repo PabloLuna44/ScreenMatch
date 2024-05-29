@@ -18,7 +18,7 @@ public class Main {
     private Scanner keyboard= new Scanner(System.in);
     private API api= new API();
     private final String URL="https://www.omdbapi.com/?t=";
-    private String API_KEY="&apikey=faec2e20";
+    private String API_KEY="&apikey="+System.getenv("API_KEY_OMDB");;
     private DataConvert dataConvert= new DataConvert();
     private List<Serie> series;
     private SerieRepository repository;

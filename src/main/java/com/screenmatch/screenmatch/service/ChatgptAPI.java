@@ -7,7 +7,7 @@ import com.theokanning.openai.service.OpenAiService;
 public class ChatgptAPI
 {
     public static String getTranslate(String text) {
-        OpenAiService service = new OpenAiService("sk-proj-ZoZvky3nNhGrvGgr1Du9T3BlbkFJGLvqCJdE335SeYcvmkdX");
+        OpenAiService service = new OpenAiService(System.getenv("API_KEY_GPT"));
 
         CompletionRequest query = CompletionRequest.builder()
                 .model("gpt-3.5-turbo-instruct")
