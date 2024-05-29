@@ -7,11 +7,9 @@ import com.screenmatch.screenmatch.service.DataConvert;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 public class Main {
 
@@ -230,9 +228,9 @@ public class Main {
 
     private void topFive(){
 
-        List<Serie> bestSeries=repository.findTop5ByOrderByRaitingDesc();
+        List<Serie> bestSeries=repository.findTop5ByOrderByRatingDesc();
 
-        bestSeries.forEach(s-> System.out.println("Serie: "+s.getTitle()+" Raiting: "+s.getRaiting()));
+        bestSeries.forEach(s-> System.out.println("Serie: "+s.getTitle()+" Rating: "+s.getRating()));
 
     }
 
@@ -252,10 +250,10 @@ public class Main {
         System.out.println("Enter season");
         Integer season = keyboard.nextInt();
 
-        System.out.println("Enter Raiting");
-        Double raiting = keyboard.nextDouble();
+        System.out.println("Enter Rating");
+        Double rating = keyboard.nextDouble();
 
-        List<Serie> seriesS=repository.SerieBySeasonAndRaiting(season,raiting);
+        List<Serie> seriesS=repository.SerieBySeasonAndRating(season,rating);
 
         seriesS.forEach(System.out::println);
 
@@ -269,8 +267,8 @@ public class Main {
         List<Episode> episode=repository.EpisodeByTitle(episodeTitle);
 
         episode.forEach(e->
-                System.out.printf("Serie:%s , Season:%s, Episode:%d, Raiting:%.2f \n",
-                        e.getSerie().getTitle(),e.getSeason(),e.getEpisode(),e.getRaiting()));
+                System.out.printf("Serie:%s , Season:%s, Episode:%d, Rating:%.2f \n",
+                        e.getSerie().getTitle(),e.getSeason(),e.getEpisode(),e.getRating()));
 
 
     }
@@ -282,8 +280,8 @@ public class Main {
             Serie serie=serieByTitle.get();
             List<Episode> episodes = repository.Top5EpisodesBySerie(serie);
             episodes.forEach(e->
-                    System.out.printf("Serie:%s , Season:%s, Episode:%d, Raiting:%.2f \n",
-                            e.getSerie().getTitle(),e.getSeason(),e.getEpisode(),e.getRaiting()));
+                    System.out.printf("Serie:%s , Season:%s, Episode:%d, Rating:%.2f \n",
+                            e.getSerie().getTitle(),e.getSeason(),e.getEpisode(),e.getRating()));
         }else{
             System.out.println("Not Found");
         }

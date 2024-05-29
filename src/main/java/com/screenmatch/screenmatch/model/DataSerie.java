@@ -9,7 +9,7 @@ public record DataSerie(
 
         @JsonAlias("Title")String title,
         @JsonAlias("totalSeasons") Integer totalSeasons,
-        @JsonAlias("imdbRating") String raiting,
+        @JsonAlias("imdbRating") String rating,
         @JsonAlias("Genre") String genre,
         @JsonAlias("Plot") String plot,
         @JsonAlias("Actors") String actors,

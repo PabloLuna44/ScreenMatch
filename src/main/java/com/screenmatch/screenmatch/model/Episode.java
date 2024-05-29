@@ -15,7 +15,7 @@ public class Episode {
     private String title;
     private Integer season;
     private Integer episode;
-    private Double raiting;
+    private Double rating;
     private LocalDate released;
     @ManyToOne
     private Serie serie;
@@ -29,10 +29,10 @@ public class Episode {
         this.title=episode.title();
         this.episode=episode.episode();
         try {
-            this.raiting= Double.valueOf(episode.raiting());
+            this.rating= Double.valueOf(episode.rating());
             this.released= LocalDate.parse(episode.released());
         }catch (NumberFormatException e){
-            this.raiting=0.0;
+            this.rating=0.0;
         }catch ( DateTimeException e){
             this.released= LocalDate.parse("0000-00-00");
         }
@@ -72,12 +72,12 @@ public class Episode {
         this.episode = episode;
     }
 
-    public Double getRaiting() {
-        return raiting;
+    public Double getRating() {
+        return rating;
     }
 
-    public void setRaiting(Double raiting) {
-        this.raiting = raiting;
+    public void setRating(Double rating) {
+        this.rating = rating;
     }
 
     public LocalDate getReleased() {
@@ -94,7 +94,7 @@ public class Episode {
                 "title='" + title + '\'' +
                 ", season=" + season +
                 ", episode=" + episode +
-                ", raiting=" + raiting +
+                ", rating=" + rating +
                 ", released=" + released +
                 '}';
     }
