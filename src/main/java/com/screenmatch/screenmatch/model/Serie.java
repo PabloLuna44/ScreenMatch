@@ -12,7 +12,7 @@ public class Serie {
 
     @Id //Indicamos que este campo va a ser el ID
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Indicamos que ese ID va a ser autoinremental
-    private long id;
+    private Long id;
     @Column(unique=true) // Indicamos que esa columna va a ser unica que no tenga otras filas con ese mismo valor en esa columna
     private String title;
     private Integer totalSeasons;
