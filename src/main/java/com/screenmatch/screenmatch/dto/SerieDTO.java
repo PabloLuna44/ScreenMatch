@@ -4,6 +4,7 @@ import com.screenmatch.screenmatch.model.Category;
 import com.screenmatch.screenmatch.model.Serie;
 
 public record SerieDTO(
+        Long id,
         String title,
         Integer totalSeasons,
         Double rating,
@@ -16,6 +17,7 @@ public record SerieDTO(
 
         public SerieDTO(Serie serie){
                 this(
+                        serie.getId(),
                         serie.getTitle(),
                         serie.getTotalSeasons(),
                         serie.getRating(),
@@ -25,6 +27,5 @@ public record SerieDTO(
                         serie.getPoster()
                         );
         }
-
 
 }
